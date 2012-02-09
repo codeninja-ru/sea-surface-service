@@ -20,8 +20,15 @@ class GribParser
   end
 
   def add_to_db(name, long, lat, temp)
-    record = { "loc" => [long, lat], "temp" => temp }
-    @collection.insert(record)
+    record = { "loc" => [long, lat], "temp" => temp, "val" => 1 }
+    item = @collection.find_one({"loc" => [long, lat]});
+    if item.nil? 
+      @collection.insert(record) 
+    else
+      item["temp"] = temp
+      item["val1"] = 1
+      @collection.save(item)
+    end
     puts "#{name} long = #{long} lat = #{lat} val = #{temp}"
   end
 
