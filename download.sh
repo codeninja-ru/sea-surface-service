@@ -4,3 +4,5 @@ URL="ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/sst.$DATE/sst2dvar_gr
 
 rm sst2dvar_grb_0.5.grib2
 wget $URL -O sst2dvar_grb_0.5.grib2 
+
+wgrib2 sst2dvar_grb_0.5.grib2 -csv sst.csv
