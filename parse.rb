@@ -1,4 +1,6 @@
-require './GribParser.rb'
+#!/usr/bin/env ruby
 
-gp = GribParser.new('sst.csv')
+require './MongoGribParser.rb'
+
+gp = MongoGribParser.new('sst.csv')
 gp.exec
